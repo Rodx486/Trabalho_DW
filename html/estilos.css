@@ -44,23 +44,19 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.menu div{
+.menu a {
     padding: 5px;
     border-radius: 10px;
+    text-decoration: none;
+    color: white;
 
 }
 
-.menu div:hover {
+.menu a:hover {
 
     background-color: #E9ECEF;
     color: black;
     cursor: pointer;
-
-    
-
-
-
-
 }
 
 .produto {
@@ -79,7 +75,7 @@ body {
 
 }
 
-.detalhe-produto{
+.detalhe-produto {
     display: grid;
     grid-template-columns: 1fr;
     gap: 5px;
@@ -91,6 +87,7 @@ body {
 
 
 }
+
 .conteudo-principal {
 
     display: grid;
@@ -114,7 +111,7 @@ body {
 
     display: flex;
 
-   
+
     gap: 5px;
     border: 1px solid black;
     border-radius: 4px;
@@ -163,10 +160,72 @@ body {
     display: grid;
 }
 
-#caracteristicas{
+#caracteristicas {
     background-color: #212529;
     padding: 2px;
     border-radius: 5px;
     color: white;
+
+}
+
+.form-container {
+    display: grid;
+    ;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #fff;
+    flex: 1;
+    margin: 10px;
+    width: 90%;
+    margin: 5px auto;
+    background-color: #CED4DA;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    justify-items: center;
+
+
+}
+
+.form-group {
+    display: grid;
+}
+
+.form-group input {
+    width: 400px;
+    height: 25px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+}
+
+.form-group label {
+    font-weight: bold;
+
+}
+
+.btn-cadastro {
+    display: grid;
+    gap: 5px;
+    padding: 5px;
+    justify-content: center;
+
+}
+
+.btn-cadastro button {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #6C757D;
+    color: white;
+
+}
+
+.btn-cadastro button:hover {
+
+    background-color: #E9ECEF;
+    color: black;
+    cursor: pointer;
+
+     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
 
 }
