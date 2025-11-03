@@ -2,6 +2,7 @@
     margin: 0;
     padding: 2px;
 
+
 }
 
 body {
@@ -118,11 +119,33 @@ body {
     gap: 5px;
     grid-template-rows: auto;
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: #fff;
     flex: 1;
     margin: 10px;
 
+
+
+}
+.produto img:first-child{
+      justify-self: center;
+
+}
+
+h1 {
+
+    text-align: center;
+}
+
+.img_produto {
+
+    border: 1px solid black;
+
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    
 
 }
 
@@ -137,13 +160,16 @@ body {
 
 
 }
-.botao-detalhe,.botao-comprar{
+
+.botao-detalhe,
+.botao-comprar {
 
     display: inline-block;
     padding: 12px 24px;
     background-color: #CED4DA;
     color: black;
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
     font-size: 16px;
     /* font-weight: bold; */
@@ -154,16 +180,17 @@ body {
 
 }
 
-.botao-comprar:hover{
+.botao-comprar:hover {
 
     background-color: #495057;
-    color:white;
+    color: white;
 
 }
-.botao-detalhe:hover{
+
+.botao-detalhe:hover {
 
     background-color: #495057;
-    color:white;
+    color: white;
 }
 
 
