@@ -1,32 +1,83 @@
 * {
-    margin: 0;
-    padding: 2px;
+     margin: 0; 
+     padding: 2px; 
 
 }
 
 body {
 
     background-color: #ADB5BD;
+    background-image: url('../data/img/banner/cabecalho.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-#cabecalho {
-
-    display: flex;
-
+.cabecalho {
+    gap: 2px;
     width: 90%;
-    margin: 5px auto;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 4px;
-    height: 180px;
-    background-color: #6C757D;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    height: 210px;
+    margin: 10px auto;
+    /* border: 1px solid #000; */
+    border-radius: 5px;
+    display: flex;
+    background-color: #6c757d;
+    overflow: hidden;
+
+}
+
+.cabecalho img {
+
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 31%;
+    height: 96%;
+    overflow: hidden;
+
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+}
+
+.banner {
+    flex: 1;
+    position: relative;
+    border: 2px solid black;
+    overflow: hidden;
 
 
 
 }
 
-#cabecalho img {
-    border-radius: 4px;
+.banner img {
+    flex: 1;
+    object-fit: cover;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;      
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.banner img.active {
+    opacity: 1;
 }
 
 .menu {
@@ -225,7 +276,7 @@ body {
     color: black;
     cursor: pointer;
 
-     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
 
 }

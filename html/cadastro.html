@@ -10,14 +10,25 @@
 
 <body>
     <header>
-        <div id="cabecalho">
-            <img src="..\data\img\banner\cabecalho.png" alt="cabecalho">
+        <div class="cabecalho" id="cabecalho">
+            <div id="logo" class="logo">
+                <img src="..\data\img\banner\cabecalho.png" alt="cabecalho">
+
+            </div>
+            <div class="banner" id="banner">
+
+            </div>
+
+            <!-- <img src="data\img\banner\cabecalho.png" alt="cabecalho">
         </div>
+        <div class="banner" id="banner">
+            <img src="data\img\banner\cabecalho.png" alt="cabecalho"> -->
+        </div>
+
     </header>
 
     <nav class="menu">
         <a href="..\index.html" class="menu-item">Home</a>
-        <a href="catalogo.html" class="menu-item">Catalogo</a>
         <a href="cadastro.html" class="menu-item">Cadastro</a>
         <a href="perfil.html" class="menu-item">Perfil</a>
         <a href="login.html" class="menu-item">Login</a>
@@ -46,7 +57,7 @@
 
             <div class="form-group">
                 <label for="endereco">ENDEREÇO</label>
-                <input type="text" id="entereco" nome="endereco"placeholder="Seu endereço">
+                <input type="text" id="entereco" nome="endereco" placeholder="Seu endereço">
             </div>
 
             <div class="form-group">
@@ -64,16 +75,18 @@
             </div>
             <div class="form-group">
                 <label for="estado">ESTADO</label>
-                <input type="text" id ="estado" name="estado" placeholder="Seu estado">
+                <input type="text" id="estado" name="estado" placeholder="Seu estado">
             </div>
-            
+
             <div class="form-group">
                 <label for="telefone">TELEFONE</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"  pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
+                    pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
             </div>
             <div class="form-group">
                 <label for="celular">CELULAR</label>
-                <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000"  pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
+                <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000"
+                    pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
             </div>
             <div class="form-group">
                 <label for="email">EMAIL</label>
@@ -89,7 +102,7 @@
                 <button type="button" id="cadastrar">CADASTRAR</button>
                 <button type="button" id="voltar">VOLTAR</button>
             </div>
-        
+
         </form>
 
 
@@ -134,6 +147,7 @@
 
 
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
