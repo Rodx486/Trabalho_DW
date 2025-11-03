@@ -221,7 +221,6 @@ body {
 
 .form-container {
     display: grid;
-    ;
     border: 1px solid black;
     border-radius: 4px;
     background-color: #fff;
@@ -238,6 +237,7 @@ body {
 
 .form-group {
     display: grid;
+    
 }
 
 .form-group input {
@@ -250,6 +250,15 @@ body {
 
 .form-group label {
     font-weight: bold;
+
+}
+
+.formulario{
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+
 
 }
 

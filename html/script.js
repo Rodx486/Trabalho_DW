@@ -26,7 +26,9 @@ const slides = banner.querySelectorAll('img');
 setInterval(() => {
 
     slides[indice].classList.remove('active');
+    
     indice = (indice + 1) % slides.length;
+
     slides[indice].classList.add('active');
 }, 3000);
 
