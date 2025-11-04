@@ -1,4 +1,4 @@
-
+// Banner dinâmico
 const imagens = [
 
     '/Trabalho_DW/data/img/banner/banner_1.jpg',
@@ -21,17 +21,23 @@ imagens.forEach((src, i) => {
 
 });
 
-const slides = banner.querySelectorAll('img');
+const img_banner = banner.querySelectorAll('img');
 
 setInterval(() => {
 
-    slides[indice].classList.remove('active');
+    img_banner[indice].classList.remove('active');
     
-    indice = (indice + 1) % slides.length;
+    indice = (indice + 1) % img_banner.length;
 
-    slides[indice].classList.add('active');
+    img_banner[indice].classList.add('active');
 }, 3000);
 
+//----------------------------------------------------------------
 
+const foto = document.getElementById('fotoPerfil');
+const inputFoto = document.getElementById('input-foto');
 
+foto.addEventListener('click',()=>{
+    inputFoto.click();
 
+});

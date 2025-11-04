@@ -19,7 +19,6 @@ body {
     width: 90%;
     height: 210px;
     margin: 10px auto;
-    /* border: 1px solid #000; */
     border-radius: 5px;
     display: flex;
     background-color: #6c757d;
@@ -399,6 +398,10 @@ h2 {
 
 
 }
+
+  #input-foto {
+    display: none;
+  }
 
 
 .btn-cadastro {
