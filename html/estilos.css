@@ -112,7 +112,6 @@ body {
 }
 
 .produto {
-
     display: grid;
 
     grid-template-columns: 1fr;
@@ -127,8 +126,15 @@ body {
 
 
 }
-.produto img:first-child{
-      justify-self: center;
+
+.produto img:first-child {
+    justify-self: center;
+
+
+}
+
+.form-group img:first-child {
+    justify-self: center;
 
 }
 
@@ -136,6 +142,12 @@ h1 {
 
     text-align: center;
 }
+
+h2 {
+
+    text-align: center;
+}
+
 
 .img_produto {
 
@@ -145,7 +157,7 @@ h1 {
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
-    
+
 
 }
 
@@ -338,6 +350,10 @@ h1 {
 
 }
 
+
+
+
+
 .formulario-login {
     display: grid;
     justify-items: center;
@@ -355,8 +371,32 @@ h1 {
 .formulario #campo-nome,
 .formulario #campo-email,
 .formulario #campo-endereco,
-.formulario #campo-senha {
+.formulario #campo-senha,
+.formulario #campo-foto {
     grid-column: 1 / span 3;
+
+}
+
+.foto-perfil {
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  
+
+
+}
+
+.foto-perfil {
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.foto-perfil:hover {
+
+    cursor: pointer;
+
 
 }
 
