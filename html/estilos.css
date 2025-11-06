@@ -123,6 +123,7 @@ body {
     margin: 10px;
 
 }
+
 .foto-compra {
     width: 600px;
     height: 400px;
@@ -134,13 +135,14 @@ body {
 }
 
 
-.detalhe-venda{
+.detalhe-venda {
     display: grid;
-  
+
 
 
 }
-.detalhe-venda div{
+
+.detalhe-venda div {
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -200,6 +202,25 @@ h2 {
 
     display: inline-block;
     padding: 12px 24px;
+    background-color: #6C757D;
+    color: black;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    font-size: 16px;
+    /* font-weight: bold; */
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.btn-proximo,
+.btn-anterior {
+
+    display: inline-block;
+    padding: 12px 24px;
     background-color: #CED4DA;
     color: black;
     text-decoration: none;
@@ -211,6 +232,22 @@ h2 {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+
+}
+
+.btn-proximo:hover{
+    background-color: #495057;
+    color: white;
+    cursor: pointer;
+
+
+
+}
+.btn-anterior:hover {
+
+    background-color: #495057;
+    color: white;
+    cursor: pointer;
 
 }
 
@@ -426,7 +463,7 @@ h2 {
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
-  
+
 
 
 }
@@ -443,9 +480,29 @@ h2 {
 
 }
 
-  #input-foto {
+.foto-pg-perfil {
+
+    width: 700px;
+    height: 330px;
+
+    margin-top: 10px;
+    margin-left: 10px;
+
+    border-radius: 3%;
+    overflow: hidden;
+    border: 1px solid black;
+
+}
+
+
+
+
+
+
+
+#input-foto {
     display: none;
-  }
+}
 
 
 .btn-cadastro {
@@ -514,3 +571,52 @@ h2 {
 }
 
 /* ---------------------------------------------------- */
+
+.perfil-dados {
+
+    display: flex;
+    gap: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 90%;
+    height: 600px;
+    margin: 5px auto;
+    background-color: #CED4DA;
+    align-items: center;
+
+
+}
+
+.info-usuario div {
+    display: flex;
+    font-size: 15px;
+
+
+}
+
+.info-usuario {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 55%;
+    width: 100%;
+    overflow: hidden;
+
+
+
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 0px;
+}
+
+.ultimas-compras {
+    margin-top: 10px;
+
+    margin-right: 10px;
+    height: 55%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}

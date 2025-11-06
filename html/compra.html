@@ -51,8 +51,15 @@
             </div>
 
             <div>
-                <label>Pagamento:</label>
-                <input type="text" id="pagamento-compra" nome="pagamento-compra">
+                <label>Método de Pagamento:</label>
+                <!-- <input type="text" id="pagamento-compra" nome="pagamento-compra"> -->
+
+                <select id="mtd-pagamento" name="mtd-pagamento" class="select-pagamento">
+                    <option value="">-- Selecione método de compra --</option>
+                    <option value="AC">PIX</option>
+                    <option value="AL">CARTÃO</option>
+                    <option value="AP">BOLETO BANCÁRIO</option>
+                </select>
             </div>
 
             <div>
@@ -62,7 +69,7 @@
             <div class="btn-produto">
                 <!-- <button>COMPRAR</button>
                 <button>VOLTAR</button> -->
-                <a href="" class="botao-comprar">COMPRAR</a>
+                <a href="" class="botao-comprar">FINALIZAR COMPRA </a>
                 <a href="" class="botao-detalhe">VOLTAR</a>
             </div>
 
