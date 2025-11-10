@@ -44,72 +44,17 @@
 
     </nav>
 
-    <div class="conteudo-principal">
-        <div class="produto">
-            <img class="img_produto" src="" alt="produto_img">
-            <h1 class="nome_produto">Nome do Produto</h1>
-            <h2 class="nome_produto">preço</h2>
-            <!-- <button href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</button>
-            <button href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</button>
- -->
+    <div id="main-produtos" class="conteudo-principal">
 
-            <a href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</a>
-            <a href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</a>
-
-        </div>
-        <div class="produto">
-            <img class="img_produto" src="" alt="produto_img">
-            <h1 class="nome_produto">Nome do Produto</h1>
-            <h2 class="nome_produto">preço</h2>
-            <!-- <button href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</button>
-            <button href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</button> -->
-            <a href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</a>
-            <a href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</a>
-        </div>
-        <div class="produto">
-            <img class="img_produto" src="" alt="produto_img">
-            <h1 class="nome_produto">Nome do Produto</h1>
-            <h2 class="nome_produto">preço</h2>
-            <!-- <button href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</button>
-            <button href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</button> -->
-            <a href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</a>
-            <a href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</a>
-        </div>
-        <div class="produto">
-            <img class="img_produto" src="" alt="produto_img">
-            <h1 class="nome_produto">Nome do Produto</h1>
-            <h2 class="nome_produto">preço</h2>
-            <!-- <button href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</button>
-            <button href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</button> -->
-            <a href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</a>
-            <a href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</a>
-        </div>
-        <div class="produto">
-           <img class="img_produto" src="" alt="produto_img">
-            <h1 class="nome_produto">Nome do Produto</h1>
-            <h2 class="nome_produto">preço</h2>
-            <!-- <button href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</button>
-            <button href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</button> -->
-            <a href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</a>
-            <a href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</a>
-        </div>
-        <div class="produto">
-            <img class="img_produto" src="" alt="produto_img">
-            <h1 class="nome_produto">Nome do Produto</h1>
-            <h2 class="nome_produto">preço</h2>
-            <!-- <button href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</button>
-            <button href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</button> -->
-            <a href="\Trabalho_DW\html\compra.html" class="botao-comprar">COMPRAR</a>
-            <a href="\Trabalho_DW\html\detalhes.html" class="botao-detalhe">DETALHES</a>
-        </div>
+        
 
     </div>
 
     <div class="btn-produto">
         <!-- <button>RETORNAR</button>
         <button>AVANÇAR</button> -->
-        <a href="" class="btn-anterior">ANTERIOR</a>
-        <a href="" class="btn-proximo">PROXIMO</a>
+        <a href="" id="btnAnterior"class="btn-anterior">ANTERIOR</a>
+        <a href="" id="btnProximo"class="btn-proximo">PROXIMO</a>
     </div>
 
     <footer class="rodape">
@@ -145,6 +90,8 @@
     </footer>
 
     <script src="html/script.js"></script>
+    <!-- <script src="html/carrega_produtos_fetch.js"></script> -->
+    <script src="html/carrega_produtos_api.js"></script>
 </body>
 
 </html>

@@ -235,7 +235,7 @@ h2 {
 
 }
 
-.btn-proximo:hover{
+.btn-proximo:hover {
     background-color: #495057;
     color: white;
     cursor: pointer;
@@ -243,6 +243,7 @@ h2 {
 
 
 }
+
 .btn-anterior:hover {
 
     background-color: #495057;
@@ -360,10 +361,13 @@ h2 {
 }
 
 #caracteristicas {
-    background-color: #212529;
-    padding: 2px;
-    border-radius: 5px;
-    color: white;
+    padding: 6px;
+    border-radius: 45px;
+
+    color: black;
+    font-size: 40px;
+    gap: 5px;
+    margin: center;
 
 }
 
@@ -496,10 +500,6 @@ h2 {
 
 
 
-
-
-
-
 #input-foto {
     display: none;
 }
@@ -541,7 +541,7 @@ h2 {
 
 }
 
-/* ---------Botão da página de Login---------------- */
+
 .btn-login {
     gap: 5px;
     padding: 5px;
@@ -570,7 +570,7 @@ h2 {
 
 }
 
-/* ---------------------------------------------------- */
+
 
 .perfil-dados {
 
@@ -619,4 +619,35 @@ h2 {
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
+}
+
+
+.btn-proximo.disabled,
+.btn-anterior.disabled {
+    background-color: #6c757d;
+    color: #adb5bd;
+    pointer-events: none;
+    cursor: default;
+}
+
+
+.p-descricao {
+
+    font-size: 35px;
+
+}
+
+#detalhe-imagem {
+    width: 600px;
+    /* <-- Novo tamanho (ajuste como quiser) */
+    height: 800px;
+    /* <-- Novo tamanho (ajuste como quiser) */
+}
+
+.crc-lista {
+
+    font-size: 40px;
+
+
+
 }

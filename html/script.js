@@ -1,4 +1,3 @@
-// Banner dinâmico
 const imagens = [
 
     '/Trabalho_DW/data/img/banner/banner_1.jpg',
@@ -33,11 +32,27 @@ setInterval(() => {
 }, 3000);
 
 //----------------------------------------------------------------
-
-const foto = document.getElementById('fotoPerfil');
+ // Script para permitir que o usuário adicione sua foto de perfil, quando clicar na imagem de exemplo
+const fotoPerfil = document.getElementById('fotoPerfil');
 const inputFoto = document.getElementById('input-foto');
 
-foto.addEventListener('click',()=>{
-    inputFoto.click();
 
-});
+if(fotoPerfil && inputFoto){
+
+    fotoPerfil.addEventListener('click',()=>{
+
+        console.log('Clicou na imagem, disparando input-foto');
+
+        inputFoto.click();
+
+    })
+
+
+}
+
+
+
+
+
+
+

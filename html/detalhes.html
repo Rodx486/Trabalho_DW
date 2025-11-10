@@ -35,31 +35,32 @@
     </nav>
 
     <div class="conteudo-principal-detalhe">
-        <div class="produto">
-            <img src="" alt="produto">
-        </div>
-        <div class="detalhe-produto">
-            <ul style="list-style-type: none" ;>
-                <strong id="caracteristicas">Características</strong>
-                <li><strong>Marca:</strong></li>
-                <li><strong>Modelo:</strong> </li>
-                <li><strong>Ano:</strong></li>
-                <li><strong>Cor:</strong></li>
-                <li><strong>Quilometragem:</strong></li>
-                <li><strong>Combustível:</strong></li>
-                <li><strong>Câmbio:</strong></li>
-                <li><strong>Preço:</strong></li>
-                <li><strong>Descrição:</strong></li>
 
+        <div class="produto">
+
+            <img id="detalhe-imagem" src="Foto do veículo" class="img_produto">
+
+        </div>
+
+        <div class="detalhe-produto">
+
+            <ul id="detalhe-lista" style="list-style-type: none;">
+                <li>Carregando...</li>
             </ul>
+
+
 
         </div>
 
     </div>
 
+
+
+   
     <div class="btn-produto">
-        <button>COMPRAR</button>
-        <button>VOLTAR</button>
+        <a id="link-comprar" href="compra.html" class="botao-comprar">COMPRAR</a>
+        <a href="../index.html" class="botao-comprar">VOLTAR</a>
+
     </div>
 
     <footer class="rodape">
@@ -95,6 +96,8 @@
 
     </footer>
     <script src='script.js'></script>
+    <script src='detalhes.js'></script>
+    
 </body>
 
 </html>
