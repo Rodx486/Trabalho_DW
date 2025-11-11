@@ -1,42 +1,48 @@
+let todosVeiculos = [];
 
-let todosVeiculos = []; 
+let paginaAtual = 1;
 
-let paginaAtual = 1; 
-
-const itensPorPagina = 6; 
-
-
-
+const itensPorPagina = 6;
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  
-    fetch('/Trabalho_DW/php/api_le_catalogo.php')
-        
-        .then(response => response.json())
-        
-        .then(data => {
-  
-            todosVeiculos = data.veiculo; 
-            
-      
-            mostrarPagina(); 
-        })
-        .catch(error => {
-            console.error('Problema ao buscar os veículos:', error);
-        });
+    pegaProduto();
 
-    
+});
 
-    
- 
+
+
+
+async function pegaProduto() {
+
+    const url = '/Trabalho_DW/php/api_le_catalogo.php';
+
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+
+            throw new Error(`Response estatus: ${response.status}`);
+
+        }
+        const resultado = await response.json();
+
+        todosVeiculos = resultado.veiculo;
+
+        mostrarPagina();
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+
     const btnProximo = document.getElementById('btnProximo');
     const btnAnterior = document.getElementById('btnAnterior');
 
     btnProximo.addEventListener('click', (evento) => {
-        evento.preventDefault(); 
-        
+        evento.preventDefault();
+
 
         const totalPaginas = Math.ceil(todosVeiculos.length / itensPorPagina);
 
@@ -47,33 +53,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-   
+
     btnAnterior.addEventListener('click', (evento) => {
-        evento.preventDefault(); 
-        
-        
+        evento.preventDefault();
+
+
         if (paginaAtual > 1) {
             paginaAtual--;
             mostrarPagina();
         }
     });
 
-});
 
+
+
+
+
+
+}
 
 
 
 function mostrarPagina() {
-   
+
     const indiceInicio = (paginaAtual - 1) * itensPorPagina;
-    
-   
+
+
     const indiceFim = indiceInicio + itensPorPagina;
 
 
     const veiculosDaPagina = todosVeiculos.slice(indiceInicio, indiceFim);
 
- 
+
     carregaVeiculo(veiculosDaPagina);
 
     atualizarBotoes();
@@ -81,13 +92,14 @@ function mostrarPagina() {
 
 
 function atualizarBotoes() {
+
     const btnProximo = document.getElementById('btnProximo');
     const btnAnterior = document.getElementById('btnAnterior');
 
 
-    const totalPaginas = Math.ceil(todosVeiculos.length / itensPorPagina);
+    const totalPaginas = Math.ceil(todosVeiculos.length / itensPorPagina); // Math.ceil sempre arredonta para cima 
 
-    
+
     if (paginaAtual === 1) {
         btnAnterior.classList.add('disabled');
     } else {
@@ -103,13 +115,15 @@ function atualizarBotoes() {
 
 
 
-function carregaVeiculo(listaDeVeiculos) { 
+function carregaVeiculo(listaDeVeiculos) {
     const container = document.getElementById('main-produtos');
 
-    container.innerHTML = ''; 
-    
+    container.innerHTML = '';
+
     listaDeVeiculos.forEach(veiculo => {
+
         const card = document.createElement('div');
+
         card.className = 'produto';
 
         card.innerHTML = `
