@@ -266,24 +266,7 @@ h2 {
 }
 
 
-.conteudo-principal {
 
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5px;
-    grid-template-rows: auto;
-    border: 1px solid black;
-    border-radius: 4px;
-    background-color: #fff;
-    flex: 1;
-    margin: 10px;
-    width: 90%;
-    margin: 5px auto;
-    background-color: #CED4DA;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-
-}
 
 .conteudo-principal-detalhe {
 
