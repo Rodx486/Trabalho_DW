@@ -110,17 +110,28 @@ body {
     cursor: pointer;
 }
 
+.conteudo-principal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
 .produto {
     display: grid;
 
     grid-template-columns: 1fr;
     gap: 5px;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto 1fr auto auto;
     border: 1px solid black;
     border-radius: 5px;
     background-color: #fff;
     flex: 1;
     margin: 10px;
+    padding: 10px;
+    height: 100%;
 
 }
 
@@ -194,13 +205,14 @@ h2 {
     flex: 1;
     margin: 10px;
 
-
+    padding: 15px;
 }
 
 .botao-detalhe,
 .botao-comprar {
 
-    display: inline-block;
+    display: block;
+    width: 100%;
     padding: 12px 24px;
     background-color: #6C757D;
     color: black;
@@ -213,6 +225,7 @@ h2 {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    box-sizing: border-box;
 
 }
 
@@ -283,7 +296,8 @@ h2 {
     margin: 5px auto;
     background-color: #CED4DA;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-
+    align-items: flex-start;
+    gap: 30px;
 }
 
 .conteudo-principal-compra {
@@ -314,6 +328,12 @@ h2 {
     margin: 5px;
     justify-content: center;
 
+}
+
+.btn-produto .botao-comprar {
+    display: inline-block;
+    width: auto;
+    padding: 12px 24px;
 }
 
 .rodape {
@@ -348,7 +368,8 @@ h2 {
     border-radius: 45px;
 
     color: black;
-    font-size: 40px;
+    font-size: 20px;
+    font-weight: bold;
     gap: 5px;
     margin: center;
 
@@ -616,20 +637,20 @@ h2 {
 
 .p-descricao {
 
-    font-size: 35px;
+    font-size: 14px;
 
 }
 
 #detalhe-imagem {
-    width: 600px;
+    width: 350px;
     /* <-- Novo tamanho (ajuste como quiser) */
-    height: 800px;
+    height: 400px;
     /* <-- Novo tamanho (ajuste como quiser) */
 }
 
 .crc-lista {
 
-    font-size: 40px;
+    font-size: 16px;
 
 
 
