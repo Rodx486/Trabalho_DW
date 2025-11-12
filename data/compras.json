@@ -1,0 +1,22 @@
+{
+  "compras": [
+    {
+      "id_cliente": 1024,
+      "data_compra": "2025-11-12",
+      "produto": {
+        "nome": "Toyota Corolla XEI 2.0",
+        "valor": 145000.00
+      },
+      "metodo_pagamento": "cartão de crédito"
+    },
+    {
+      "id_cliente": 1025,
+      "data_compra": "2025-11-10",
+      "produto": {
+        "nome": "Honda Civic Touring 1.5 Turbo",
+        "valor": 162000.00
+      },
+      "metodo_pagamento": "PIX"
+    }
+  ]
+}
