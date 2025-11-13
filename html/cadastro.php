@@ -28,40 +28,73 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         || empty($user_senha)
     ) {
 
-        $message = 'Por favor, preencha todos os camplos.';
-    
-    }else{
+        // $message = 'Por favor, preencha todos os campos.';
 
-        $file = 'usuarios.json';
-        $users = '';
+        echo "<script>alert('Por favor, preencha todos os campos.');</script>";
+    } else {
 
-        if (file_exists($file)){
+        $file = '../data/usuarios.json';
+        $users = [];
 
-            $users =json_decode(file_get_contents($file),true);
+        if (file_exists($file)) {
 
+            $users = json_decode(file_get_contents($file), true);
         }
 
         $userExiste = false;
 
 
-        foreach($users as $usuario){
+        foreach ($users as $usuario) {
 
-            
+            if ($usuario['email'] === $user_email) {
 
+                $userExiste = true;
 
-
-
+                break;
+            }
         }
 
+        if ($userExiste) {
 
+            // $message = 'Este nome de usuário já existe.';
 
+            echo "<script>alert('Este e-mail já está cadastrado.');</script>";
 
+        } else {
 
+            $ultimoUsuario = end($users);
+            $novoId = $ultimoUsuario ? $ultimoUsuario['id'] + 1 : 1;
+
+            $novoUsuario[] = [
+
+                'nome' => $user_nome,
+                'cpf' => $user_cpf,
+                'rg' => $user_rg,
+                'data' => $user_data_nasc,
+                'endereco' => $user_endereco,
+                'numero' => $user_numero,
+                'cep' => $user_cep,
+                'cidade' => $user_cidade,
+                'estado' => $user_estado,
+                'telefone' => $user_telefone,
+                'celular' => $user_celular,
+                'email' => $user_email,
+                'senha' => $user_senha,
+                'id' => $newId
+
+            ];
+
+            $users[] = $novoUsuario;
+
+            file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
+
+            // $message = 'Registro bem-sucedido!! Você pode fazer login agora.';
+
+             echo "<script>alert('Registro bem-sucedido!! Você pode fazer login agora.');</script>";
+             header('Refresh: 2; URL=login.php');
+        }
     }
 }
-
-
-
 
 
 ?>
@@ -103,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <a href="../index.html">Home</a>
             </li>
             <li>
-                <a href="cadastro.html">Cadastro</a>
+                <a href="cadastro.php">Cadastro</a>
             </li>
             <li>
                 <a href="perfil.html">Perfil</a>
@@ -122,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="form-container">
 
-        <form action="registra.php" class="formulario" method="POST">
+        <form action="cadastro.php" class="formulario" method="POST">
 
             <?php if ($message): ?>
                 <p><?php echo $message; ?></p>
@@ -136,30 +169,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="form-group" id="campo-nome">
                 <label for="nome">NOME</label>
-                <input type="text" id="nome" placeholder="Seu nome" nome="nome">
+                <input type="text" id="nome" placeholder="Seu nome" name="nome">
             </div>
             <div class="form-group">
                 <label for="cpf">CPF</label>
-                <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" nome="cpf">
+                <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" name="cpf">
             </div>
             <div class="form-group">
                 <label for="rg">RG</label>
-                <input type="text" id="rg" placeholder="Seu RG" nome="rg">
+                <input type="text" id="rg" placeholder="Seu RG" name="rg">
             </div>
 
             <div class="form-group">
                 <label for="data">Data de Nasc</label>
-                <input type="date" id="data" nome="data">
+                <input type="date" id="data" name="data">
             </div>
 
             <div class="form-group" id="campo-endereco">
                 <label for="endereco">ENDEREÇO</label>
-                <input type="text" id="endereco" nome="endereco" placeholder="Seu endereço">
+                <input type="text" id="endereco" name="endereco" placeholder="Seu endereço">
             </div>
 
             <div class="form-group">
                 <label for="numero">NÚMERO</label>
-                <input type="number" id="numero" nome="numero" placeholder="Seu número">
+                <input type="number" id="numero" name="numero" placeholder="Seu número">
             </div>
 
             <div class="form-group">
