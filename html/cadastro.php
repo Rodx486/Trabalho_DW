@@ -1,3 +1,74 @@
+<?php
+$message = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $user_nome = $_POST['nome'];
+    $user_cpf = $_POST['cpf'];
+    $user_rg = $_POST['rg'];
+    $user_data_nasc = $_POST['data'];
+    $user_endereco = $_POST['endereco'];
+    $user_numero = $_POST['numero'];
+    $user_cep = $_POST['cep'];
+    $user_cidade = $_POST['cidade'];
+    $user_estado = $_POST['estado'];
+    $user_telefone = $_POST['telefone'];
+    $user_celular = $_POST['celular'];
+    $user_email = $_POST['email'];
+    $user_senha = $_POST['senha'];
+
+
+    if (
+        empty($user_nome) || empty($user_cpf)
+        || empty($user_rg) || empty($user_data_nasc)
+        || empty($user_endereco) || empty($user_numero)
+        || empty($user_cep) || empty($user_cidade)
+        || empty($user_estado) || empty($user_telefone)
+        || empty($user_celular) || empty($user_email)
+        || empty($user_senha)
+    ) {
+
+        $message = 'Por favor, preencha todos os camplos.';
+    
+    }else{
+
+        $file = 'usuarios.json';
+        $users = '';
+
+        if (file_exists($file)){
+
+            $users =json_decode(file_get_contents($file),true);
+
+        }
+
+        $userExiste = false;
+
+
+        foreach($users as $usuario){
+
+            
+
+
+
+
+        }
+
+
+
+
+
+    }
+}
+
+
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -51,7 +122,12 @@
 
     <div class="form-container">
 
-        <form class="formulario">
+        <form action="registra.php" class="formulario" method="POST">
+
+            <?php if ($message): ?>
+                <p><?php echo $message; ?></p>
+            <?php endif; ?>
+
             <div class="form-group" id="campo-foto">
                 <img class="foto-perfil" id="fotoPerfil" src="\Trabalho_DW\data\img\img_perfil\perfil_exemplo.png"
                     alt="Foto_perfil">
@@ -153,7 +229,7 @@
                 <input type="password" id="senha" name="senha" placeholder="Senha">
             </div>
             <div class="btn-cadastro">
-                <button type="button" id="cadastrar">CADASTRAR</button>
+                <button type="submit" id="cadastrar">CADASTRAR</button>
                 <button type="button" id="voltar">VOLTAR</button>
             </div>
 
