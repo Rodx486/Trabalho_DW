@@ -237,10 +237,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <option value="TO">Tocantins (TO)</option>
                 </select>
 
-
-
-
-
             </div>
 
             <div class="form-group">

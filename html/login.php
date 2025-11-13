@@ -1,3 +1,97 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
+
+        header('Location: deashboard.php');
+        exit;
+    }
+
+    $message= '';
+
+    if($_SERVER['REQUEST_METHOD'== 'POST']){
+
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+
+
+    }
+    if(empty($email) || empty($senha)){
+
+
+    echo "<script>alert('Por favor, preencha todos os campos.');</script>";
+
+
+    }else{
+
+        $file= '../data/usuarios.json';
+
+        if(!file_exists($file)){
+
+            echo "<script>alert('Arquivo de usuários não encontrado.');</script>";
+
+        }else{
+
+            $usuarios = json_decode(file_get_contents($file), true);
+
+
+            $usuarioAchado = null;
+
+
+            foreach($userr as $usuario){
+
+                if($usuario['email'] === $email){
+
+
+                    $usuarioAchado = $usuario;
+                    break;
+                }
+
+
+            }
+
+            if($usuarioAchado && $usuarioAchado['senha'] === $senha){
+
+                $_SESSION['logado'] = true;
+                $_SESSION['nome'] = $usuarioAchado['nome'];
+                $_SESSION['cpf'] = $usuarioAchado['cpf'];
+                $_SESSION['rg'] = $usuarioAchado['rg'];
+                $_SESSION['data'] = $usuarioAchado['data'];
+                $_SESSION['endereco'] = $usuarioAchado['endereco'];
+                $_SESSION['numero'] = $usuarioAchado['numero'];
+                $_SESSION['cep'] = $usuarioAchado['cep'];
+                $_SESSION['cidade'] = $usuarioAchado['cidade'];
+                $_SESSION['estado'] = $usuarioAchado['estado'];
+                $_SESSION['telefone'] = $usuarioAchado['telefone'];
+                $_SESSION['celular'] = $usuarioAchado['celular'];
+                $_SESSION['email'] = $usuarioAchado['email'];
+
+                header('Location: dashboard.php');
+
+
+
+               
+            }
+
+
+        }
+
+
+
+
+    }
+    
+
+
+
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -43,7 +137,7 @@
             <li class ="dropdown">
                 <a href="">Login</a>
                 <div class="dropdown-menu">
-                    <a href="login.html">Entrar</a>
+                    <a href="login.php">Entrar</a>
                     <a href="">Sair</a>
                 </div>
             </li>
@@ -53,7 +147,7 @@
     </nav>
 
     <div class="form-container">
-        <form class="formulario-login">
+        <form action="login.php" class="formulario-login" method="POST">
 
             <div class="form-group">
                 <label for="email">EMAIL</label>
@@ -65,7 +159,7 @@
                 <input type="password" id="senha" name="senha" placeholder="Senha">
             </div>
             <div class="btn-login">
-                <button type="button" id="cadastrar">ENTRAR</button>
+                <button type="submit" id="cadastrar">ENTRAR</button>
             </div>
 
         </form>
