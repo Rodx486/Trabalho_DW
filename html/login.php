@@ -67,11 +67,7 @@
                 $_SESSION['email'] = $usuarioAchado['email'];
 
                 header('Location: dashboard.php');
-
-
-
-               
-            }
+        }
 
 
         }
