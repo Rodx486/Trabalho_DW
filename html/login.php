@@ -1,57 +1,45 @@
 <?php
-    session_start();
+session_start();
 
-    if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
+if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
+    header('Location: ../index.html');
+    exit;
+}
 
-        header('Location: deashboard.php');
-        exit;
-    }
-
-    $message= '';
-
-    if($_SERVER['REQUEST_METHOD'== 'POST']){
-
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+$message = '';
 
 
-    }
-    if(empty($email) || empty($senha)){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-    echo "<script>alert('Por favor, preencha todos os campos.');</script>";
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
 
-    }else{
+    if (empty($email) || empty($senha)) {
+        echo "<script>alert('Por favor, preencha todos os campos.');</script>";
+    } else {
 
-        $file= '../data/usuarios.json';
+        $file = '../data/usuarios.json';
 
-        if(!file_exists($file)){
-
+        if (!file_exists($file)) {
             echo "<script>alert('Arquivo de usuários não encontrado.');</script>";
-
-        }else{
-
+        } else {
             $usuarios = json_decode(file_get_contents($file), true);
-
 
             $usuarioAchado = null;
 
 
-            foreach($userr as $usuario){
-
-                if($usuario['email'] === $email){
+            foreach ($usuarios as $usuario) {
 
 
+                if ($usuario['email'] === $email) {
                     $usuarioAchado = $usuario;
                     break;
                 }
-
-
             }
 
-            if($usuarioAchado && $usuarioAchado['senha'] === $senha){
-
+            if ($usuarioAchado && $usuarioAchado['senha'] === $senha) {
                 $_SESSION['logado'] = true;
                 $_SESSION['nome'] = $usuarioAchado['nome'];
                 $_SESSION['cpf'] = $usuarioAchado['cpf'];
@@ -66,22 +54,14 @@
                 $_SESSION['celular'] = $usuarioAchado['celular'];
                 $_SESSION['email'] = $usuarioAchado['email'];
 
-                header('Location: dashboard.php');
+                header('Location: ../index.html');
+                exit;
+            } else {
+                echo "<script>alert('E-mail ou senha inválidos.');</script>";
+            }
         }
-
-
-        }
-
-
-
-
     }
-    
-
-
-
-
-
+}
 
 ?>
 
@@ -109,10 +89,7 @@
 
             </div>
 
-            <!-- <img src="data\img\banner\cabecalho.png" alt="cabecalho">
-        </div>
-        <div class="banner" id="banner">
-            <img src="data\img\banner\cabecalho.png" alt="cabecalho"> -->
+
         </div>
 
     </header>
@@ -130,7 +107,7 @@
             <li>
                 <a href="perfil.html">Perfil</a>
             </li>
-            <li class ="dropdown">
+            <li class="dropdown">
                 <a href="">Login</a>
                 <div class="dropdown-menu">
                     <a href="login.php">Entrar</a>
@@ -147,12 +124,12 @@
 
             <div class="form-group">
                 <label for="email">EMAIL</label>
-                <input type="email" id="email" name="email" placeholder="email@exemplo.com">
+                <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
             </div>
 
             <div class="form-group">
                 <label for="senha">SENHA</label>
-                <input type="password" id="senha" name="senha" placeholder="Senha">
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
             </div>
             <div class="btn-login">
                 <button type="submit" id="cadastrar">ENTRAR</button>
