@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $ultimoUsuario = end($users);
             $novoId = $ultimoUsuario ? $ultimoUsuario['id'] + 1 : 1;
 
-            $novoUsuario[] = [
+            $users[] = [
 
                 'nome' => $user_nome,
                 'cpf' => $user_cpf,
@@ -80,11 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'celular' => $user_celular,
                 'email' => $user_email,
                 'senha' => $user_senha,
-                'id' => $newId
+                'id' => $novoId
 
             ];
-
-            $users[] = $novoUsuario;
 
             file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
 
@@ -145,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <a href="">Login</a>
                 <div class="dropdown-menu">
                     <a href="login.html">Entrar</a>
-                    <a href="">Sair</a>
+                    <a href="logout.php">Sair</a>
                 </div>
             </li>
 

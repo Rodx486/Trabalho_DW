@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <a href="">Login</a>
                 <div class="dropdown-menu">
                     <a href="login.php">Entrar</a>
-                    <a href="">Sair</a>
+                    <a href="logout.php">Sair</a>
                 </div>
             </li>
 
