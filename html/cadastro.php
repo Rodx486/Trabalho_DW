@@ -247,7 +247,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="form-group">
                 <label for="estado">ESTADO</label>
-                <!-- <input type="text" id="estado" name="estado" placeholder="Seu estado"> -->
                 <select id="estado" name="estado" class="estado-select">
                     <option value="">-- Selecione um estado --</option>
                     <option value="AC">Acre (AC)</option>
@@ -346,7 +345,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     </footer>
-    <script src="script.js"></script>
+</body>
+
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('voltar');
+        if (btn) {
+            btn.addEventListener('click', function() {
+                if (history.length > 1) {
+                    history.back();
+                } else {
+        
+                    window.location.href = '../index.php';
+                }
+            });
+        }
+    });
+</script>
+<script src="script.js"></script>
 </body>
 
 </html>
