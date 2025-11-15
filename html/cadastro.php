@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="form-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep" pattern="\d{5}-\d{3}" maxlength="9" placeholder="00000-000">
+                <input type="text" id="cep" name="cep"  maxlength="9" placeholder="00000-000">
             </div>
             <div class="form-group">
                 <label for="cidade">CIDADE</label>
@@ -240,12 +240,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label for="telefone">TELEFONE</label>
                 <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
-                    pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
+                    >
             </div>
             <div class="form-group">
                 <label for="celular">CELULAR</label>
                 <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000"
-                    pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}">
+                    >
             </div>
             <div class="form-group" id="campo-email">
                 <label for="email">EMAIL</label>
