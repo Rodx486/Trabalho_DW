@@ -2,6 +2,8 @@
 session_start();
 $message = '';
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $user_nome = $_POST['nome'];
@@ -30,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         || empty($user_senha || empty($user_foto))
     ) {
 
-       
+
 
         echo "<script>alert('Por favor, preencha todos os campos.');</script>";
     } else {
@@ -60,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
             echo "<script>alert('Este e-mail já está cadastrado.');</script>";
-
         } else {
 
             $ultimoUsuario = end($users);
@@ -87,21 +88,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
 
-            // $message = 'Registro bem-sucedido!! Você pode fazer login agora.';
 
-             echo "<script>alert('Registro bem-sucedido!! Você pode fazer login agora.');</script>";
-             header('Refresh: 2; URL=login.php');
+
+            echo "<script>alert('Registro bem-sucedido!! Você pode fazer login agora.');</script>";
+            header('Refresh: 2; URL=login.php');
         }
     }
 }
-
-
-
-
-
-
-
-
 
 ?>
 
@@ -204,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="form-container">
 
-        <form action="cadastro.php" class="formulario" method="POST">
+        <form action="cadastro.php" class="formulario" method="POST" enctype="multipart/form-data">
 
             <?php if ($message): ?>
                 <p><?php echo $message; ?></p>
@@ -213,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group" id="campo-foto">
                 <img class="foto-perfil" id="fotoPerfil" src="\Trabalho_DW\data\img\img_perfil\perfil_exemplo.png"
                     alt="Foto_perfil">
-                <input type="file" id="input-foto" accept="image/*">
+                <input type="file" id="input-foto" accept="image/*" name="foto_upload">
             </div>
 
             <div class="form-group" id="campo-nome">
@@ -246,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="form-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep"  maxlength="9" placeholder="00000-000">
+                <input type="text" id="cep" name="cep" maxlength="9" placeholder="00000-000">
             </div>
             <div class="form-group">
                 <label for="cidade">CIDADE</label>
@@ -290,13 +283,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="form-group">
                 <label for="telefone">TELEFONE</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
-                    >
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
             </div>
             <div class="form-group">
                 <label for="celular">CELULAR</label>
-                <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000"
-                    >
+                <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000">
             </div>
             <div class="form-group" id="campo-email">
                 <label for="email">EMAIL</label>

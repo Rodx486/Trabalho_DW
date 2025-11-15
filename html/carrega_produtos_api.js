@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
 async function pegaProduto() {
 
     const url = '/Trabalho_DW/php/api_le_catalogo.php';
@@ -63,10 +61,6 @@ async function pegaProduto() {
             mostrarPagina();
         }
     });
-
-
-
-
 
 
 

@@ -1,6 +1,30 @@
 <?php
-    session_start();
-    
+session_start();
+
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+
+    header('Location: login.php');
+
+    exit;
+}
+
+
+$comprasDoUsuario = [];
+
+$caminhoVendas = '../data/vendas.json';
+
+if (file_exists($caminhoVendas)) {
+
+    $todasVendas = json_decode(file_get_contents($caminhoVendas), true);
+    $idDoUsuario = $_SESSION['id'];
+
+
+    $comprasDoUsuario = array_filter($todasVendas, function ($venda) use ($idDoUsuario) {
+        return isset($venda['usuario_id']) && $venda['usuario_id'] == $idDoUsuario;
+    });
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +48,7 @@
 
             </div>
 
-            <!-- <img src="data\img\banner\cabecalho.png" alt="cabecalho">
-        </div>
-        <div class="banner" id="banner">
-            <img src="data\img\banner\cabecalho.png" alt="cabecalho"> -->
+
         </div>
 
     </header>
@@ -45,7 +66,7 @@
             <li>
                 <a href="perfil.php">Perfil</a>
             </li>
-            <li class ="dropdown">
+            <li class="dropdown">
                 <a href="">Login</a>
                 <div class="dropdown-menu">
                     <a href="login.php">Entrar</a>
@@ -104,97 +125,76 @@
 
     <div class="perfil-dados">
 
-        <div class="foto-pg-perfil"><img src="" alt="foto_perfil">
-        
-        </div>
-
         <div class="info-usuario">
+            <h3>Seus Dados</h3>
             <div>
                 <label>Nome:</label>
-                <p></p>
+                <p><?php echo htmlspecialchars($_SESSION['nome']); ?></p>
             </div>
             <div>
                 <label>CPF:</label>
-                <p></p>
+                <p><?php echo htmlspecialchars($_SESSION['cpf']); ?></p>
             </div>
-
             <div>
                 <label>RG:</label>
-                <p></p>
-
+                <p><?php echo htmlspecialchars($_SESSION['rg']); ?></p>
             </div>
-
             <div>
                 <label>Data de Nasc:</label>
-                <p></p>
-
-
+                <p><?php echo htmlspecialchars($_SESSION['data']); ?></p>
             </div>
-
             <div>
                 <label>Endereço:</label>
-                <p></p>
-
+                <p><?php echo htmlspecialchars($_SESSION['endereco']); ?></p>
             </div>
-
             <div>
                 <label>Número:</label>
-                <p></p>
-
-
+                <p><?php echo htmlspecialchars($_SESSION['numero']); ?></p>
             </div>
-
             <div>
                 <label>Cep:</label>
-                <p></p>
-
+                <p><?php echo htmlspecialchars($_SESSION['cep']); ?></p>
             </div>
-
             <div>
                 <label>Cidade:</label>
-                <p></p>
-
-
+                <p><?php echo htmlspecialchars($_SESSION['cidade']); ?></p>
             </div>
-
             <div>
                 <label>Estado:</label>
-                <p></p>
-
+                <p><?php echo htmlspecialchars($_SESSION['estado']); ?></p>
             </div>
-
             <div>
                 <label>Telefone:</label>
-                <p></p>
-
+                <p><?php echo htmlspecialchars($_SESSION['telefone']); ?></p>
             </div>
-
             <div>
                 <label>Celular:</label>
-                <p></p>
-
+                <p><?php echo htmlspecialchars($_SESSION['celular']); ?></p>
             </div>
-
             <div>
                 <label>Email:</label>
-            <p></p>
-
+                <p><?php echo htmlspecialchars($_SESSION['email']); ?></p>
             </div>
-
-
         </div>
 
         <div class="ultimas-compras">
             <h3>ÚLTIMAS COMPRAS</h3>
 
-
-
-
-
+            <?php if (empty($comprasDoUsuario)): ?>
+                <p class="nenhuma-compra">Você ainda não fez nenhuma compra.</p>
+            <?php else: ?>
+                <?php foreach (array_reverse($comprasDoUsuario) as $compra): // array_reverse para mostrar as mais novas primeiro 
+                ?>
+                    <div class="compra-item">
+                        <p><strong>Data:</strong> <?php echo date("d/m/Y", strtotime($compra['data'])); ?></p>
+                        <p><strong>Produto:</strong> <?php echo htmlspecialchars($compra['produto']); ?></p>
+                        <p><strong>Valor:</strong> R$ <?php echo number_format($compra['preco'], 2, ',', '.'); ?></p>
+                        <p><strong>Pagamento:</strong> <?php echo htmlspecialchars($compra['metodo_pagamento']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
         </div>
-
-
     </div>
 
 
