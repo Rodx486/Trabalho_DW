@@ -793,15 +793,11 @@ h2 {
 }
 
 
-
-/* Adicione isso ao final do seu estilos.css */
-
-/* Melhora as caixas de Informação e Compras */
 .info-usuario, .ultimas-compras {
     padding: 15px;
     overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo for maior */
-    background-color: #E9ECEF; /* Um fundo leve */
-    height: 500px; /* Aumenta a altura que você tinha definido */
+    background-color: #E9ECEF;
+    height: 500px; 
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
 }
 
@@ -812,7 +808,6 @@ h2 {
     padding-bottom: 10px;
 }
 
-/* Estilo para cada item de compra */
 .compra-item {
     border: 1px solid #ADB5BD;
     border-radius: 5px;
@@ -829,7 +824,7 @@ h2 {
     color: #343A40;
 }
 
-/* Mensagem se não houver compras */
+
 .nenhuma-compra {
     text-align: center;
     color: #6C757D;
@@ -837,8 +832,8 @@ h2 {
     font-size: 1.1em;
 }
 
-/* Ajusta os <p> dentro do info-usuario */
+
 .info-usuario div p {
     margin-left: 8px;
-    word-break: break-all; /* Quebra o e-mail ou dados longos */
+    word-break: break-all; 
 }
