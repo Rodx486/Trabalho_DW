@@ -1,6 +1,26 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] != true) {
+
+    echo "<script>
+            alert('Você precisa estar logado para fazer uma compra.');
+            window.location.href = 'login.php';
+          </script>";
+    exit;
+}
+
+$endereco = $_SESSION['endereco'] ?? '';
+$numero = $_SESSION['numero'] ?? '';
+$cidade = $_SESSION['cidade'] ?? '';
+$estado = $_SESSION['estado'] ?? '';
+$enderecoCompleto = "$endereco, $numero - $cidade / $estado";
+
+
+
+
+
+
 ?>
 
 
@@ -54,53 +74,93 @@ session_start();
 
     </nav>
 
+    <div class='container-foto-logado'>
+
+        <?php
+
+        if (isset($_SESSION['logado']) && $_SESSION['logado'] === true):
+
+            $primeiroNome = explode(' ', $_SESSION['nome'])[0];
+
+
+            $foto = $_SESSION['foto'] ?? '';
+            $fotoPadrao = 'data/img/img_perfil/perfil_exemplo.png';
+            $fotoCaminho = !empty($foto) ? $foto : $fotoPadrao;
+
+
+            if (strpos($_SERVER['SCRIPT_FILENAME'], '/html/') !== false) {
+
+                $fotoCaminho = '../' . ltrim($fotoCaminho, '/');
+            } else {
+
+                $fotoCaminho = ltrim($fotoCaminho, './');
+            }
+
+
+            if (strpos($_SERVER['SCRIPT_FILENAME'], '/html/') !== false) {
+                $perfilLink = 'perfil.php';
+            } else {
+                $perfilLink = 'html/perfil.php';
+            }
+
+        ?>
+
+            <a href="<?php echo $perfilLink; ?>" class="link-usuario-logado">
+                <img src="<?php echo $fotoCaminho; ?>" alt="Foto" class="foto-menu-logado">
+                <span>Olá, <?php echo htmlspecialchars($primeiroNome); ?>!</span>
+            </a>
+
+        <?php endif; ?>
+
+
+
+    </div>
+
+
     <div class="conteudo-principal-compra">
         <div class="foto-compra">
             <img src="" alt="produto-foto">
         </div>
 
         <div class="detalhe-venda">
-            <div>
-                <label>Nome:</label>
-                <input type="text" id="nome-compra" nome="nome-compra">
-            </div>
-
-            <div>
-                <label>Preço:</label>
-                <input type="text" id="preco-compra" nome="preco-compra">
-            </div>
-
-            <div>
-                <label>Método de Pagamento:</label>
-             
-
-                <select id="mtd-pagamento" name="mtd-pagamento" class="select-pagamento">
-                    <option value="">-- Selecione método de compra --</option>
-                    <option value="AC">PIX</option>
-                    <option value="AL">CARTÃO</option>
-                    <option value="AP">BOLETO BANCÁRIO</option>
-                </select>
-            </div>
-
-            <div>
-                <label>Endereço de entrega:</label>
-                <input type="text" id="endereco-compra" nome="endereco-compra">
-            </div>
-
             <form class="finaliza-venda" action="vendas.php" method="POST">
 
-             <div class="btn-produto">
+                <div>
+                    <label>Produto:</label>
+                    <input type="text" id="nome-compra" name="nome-compra" readonly>
+                </div>
 
+                <div>
+                    <label>Preço:</label>
+                    <input type="text" id="preco-compra" name="preco-compra" value="<?php ?> " readonly>
+                </div>
 
-                <button type="submit" class="botao-finalizar" id='botao-finalizar'>FINALIZAR COMPRA</button>
-                <button type='button'class= "botao-detalhe" id='botao-detalhe'>VOLTAR</button>
+                <div>
+                    <label>Endereço de entrega:</label>
+                    <input type="text" id="endereco-compra" name="endereco-compra"
+                        value="<?php echo htmlspecialchars($enderecoCompleto); ?>" readonly>
+                </div>
 
+                <div>
+                    <label>Método de Pagamento:</label>
+                    <select id="mtd-pagamento" name="mtd-pagamento" class="select-pagamento" required>
+                        <option value="">-- Selecione um método --</option>
+                        <option value="PIX">PIX</option>
+                        <option value="CARTAO">CARTÃO</option>
+                        <option value="BOLETO">BOLETO BANCÁRIO</option>
+                    </select>
+                </div>
 
-            </div>
+                <input type="hidden" id="produto-id-hidden" name="produto_id">
+                <input type="hidden" id="produto-nome-hidden" name="produto_nome">
+                <input type="hidden" id="produto-preco-hidden" name="produto_preco">
 
-
+                <div class="btn-produto">
+                    <button type="submit" class="botao-finalizar" id='botao-finalizar'>FINALIZAR COMPRA</button>
+                    <button type='button' class="botao-detalhe" id='botao-detalhe'>VOLTAR</button>
+                </div>
             </form>
-            
+
         </div>
 
 
@@ -141,6 +201,7 @@ session_start();
 
     </footer>
     <script src='script.js'></script>
+    <script src='compra.js'></script>
 </body>
 
 </html>

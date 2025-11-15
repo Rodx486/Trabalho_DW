@@ -1,9 +1,11 @@
 <?php
+session_start();
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $user_nome = $_POST['nome'];
+    $user_foto = $_POST['foto'];
     $user_cpf = $_POST['cpf'];
     $user_rg = $_POST['rg'];
     $user_data_nasc = $_POST['data'];
@@ -25,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         || empty($user_cep) || empty($user_cidade)
         || empty($user_estado) || empty($user_telefone)
         || empty($user_celular) || empty($user_email)
-        || empty($user_senha)
+        || empty($user_senha || empty($user_foto))
     ) {
 
-        // $message = 'Por favor, preencha todos os campos.';
+       
 
         echo "<script>alert('Por favor, preencha todos os campos.');</script>";
     } else {
@@ -56,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($userExiste) {
 
-            // $message = 'Este nome de usuário já existe.';
 
             echo "<script>alert('Este e-mail já está cadastrado.');</script>";
 
@@ -93,6 +94,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
+
+
+
+
+
+
 
 
 ?>
@@ -150,6 +158,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </ul>
 
     </nav>
+
+    <div class='container-foto-logado'>
+
+        <?php
+
+        if (isset($_SESSION['logado']) && $_SESSION['logado'] === true):
+
+            $primeiroNome = explode(' ', $_SESSION['nome'])[0];
+
+
+            $foto = $_SESSION['foto'] ?? '';
+            $fotoPadrao = 'data/img/img_perfil/perfil_exemplo.png';
+            $fotoCaminho = !empty($foto) ? $foto : $fotoPadrao;
+
+
+            if (strpos($_SERVER['SCRIPT_FILENAME'], '/html/') !== false) {
+
+                $fotoCaminho = '../' . ltrim($fotoCaminho, '/');
+            } else {
+
+                $fotoCaminho = ltrim($fotoCaminho, './');
+            }
+
+
+            if (strpos($_SERVER['SCRIPT_FILENAME'], '/html/') !== false) {
+                $perfilLink = 'perfil.php';
+            } else {
+                $perfilLink = 'html/perfil.php';
+            }
+
+        ?>
+
+            <a href="<?php echo $perfilLink; ?>" class="link-usuario-logado">
+                <img src="<?php echo $fotoCaminho; ?>" alt="Foto" class="foto-menu-logado">
+                <span>Olá, <?php echo htmlspecialchars($primeiroNome); ?>!</span>
+            </a>
+
+        <?php endif; ?>
+
+
+
+    </div>
+
 
     <div class="form-container">
 

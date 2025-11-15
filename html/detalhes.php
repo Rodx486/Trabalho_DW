@@ -58,6 +58,50 @@ session_start();
 
     </nav>
 
+
+    <div class='container-foto-logado'>
+
+        <?php
+
+        if (isset($_SESSION['logado']) && $_SESSION['logado'] === true):
+
+            $primeiroNome = explode(' ', $_SESSION['nome'])[0];
+
+
+            $foto = $_SESSION['foto'] ?? '';
+            $fotoPadrao = 'data/img/img_perfil/perfil_exemplo.png';
+            $fotoCaminho = !empty($foto) ? $foto : $fotoPadrao;
+
+
+            if (strpos($_SERVER['SCRIPT_FILENAME'], '/html/') !== false) {
+
+                $fotoCaminho = '../' . ltrim($fotoCaminho, '/');
+            } else {
+
+                $fotoCaminho = ltrim($fotoCaminho, './');
+            }
+
+
+            if (strpos($_SERVER['SCRIPT_FILENAME'], '/html/') !== false) {
+                $perfilLink = 'perfil.php';
+            } else {
+                $perfilLink = 'html/perfil.php';
+            }
+
+        ?>
+
+            <a href="<?php echo $perfilLink; ?>" class="link-usuario-logado">
+                <img src="<?php echo $fotoCaminho; ?>" alt="Foto" class="foto-menu-logado">
+                <span>Olá, <?php echo htmlspecialchars($primeiroNome); ?>!</span>
+            </a>
+
+        <?php endif; ?>
+
+
+
+    </div>
+
+
     <div class="conteudo-principal-detalhe">
 
         <div class="produto">

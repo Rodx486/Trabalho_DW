@@ -168,6 +168,21 @@
         "senha": "phduarte84",
         "foto": "",
         "id": 10
+    },
+    {
+        "nome": "Naruto Uzumaki",
+        "cpf": "106.141.726-32",
+        "rg": "15885297",
+        "data": "2025-11-11",
+        "endereco": "Rua do Marinheiro",
+        "numero": "44",
+        "cep": "36015-120",
+        "cidade": "Juiz de Fora",
+        "estado": "MG",
+        "telefone": "(32) 99143-4615",
+        "celular": "(32) 99143-4615",
+        "email": "naruto@gmail.com",
+        "senha": "2222",
+        "id": 11
     }
-    
 ]

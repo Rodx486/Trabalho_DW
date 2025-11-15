@@ -130,7 +130,7 @@ function carregaVeiculo(listaDeVeiculos) {
             <img class="img_produto" src="${veiculo.foto}" alt="produto_img">
             <h1 class="nome_produto">${veiculo.marca} Modelo:${veiculo.modelo}</h1>
             <h2 class="nome_produto">Preço: R$ ${veiculo.preco}</h2>
-            <a href="/Trabalho_DW/html/compra.php?$id=${veiculo.id}" class="botao-comprar">COMPRAR</a>
+            <a href="/Trabalho_DW/html/compra.php?id=${veiculo.id}" class="botao-comprar">COMPRAR</a>
             <a href="/Trabalho_DW/html/detalhes.php?id=${veiculo.id}" class="botao-detalhe">DETALHES</a>
         `;
 
