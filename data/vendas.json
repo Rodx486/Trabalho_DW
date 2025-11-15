@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "data": "2025-11-10",
+        "produto": "Ferrari F8 Tributo",
+        "preco": 280000,
+        "metodo_pagamento": "Crédito",
+        "usuario_id": 1,
+        "status": "Concluída"
+    },
+    {
+        "id": 2,
+        "data": "2025-11-08",
+        "produto": "BMW M440i xDrive",
+        "preco": 95000,
+        "metodo_pagamento": "Débito",
+        "usuario_id": 2,
+        "status": "Concluída"
+    },
+    {
+        "id": 3,
+        "data": "2025-11-09",
+        "produto": "Audi A7 Sportback",
+        "preco": 125000,
+        "metodo_pagamento": "PIX",
+        "usuario_id": 3,
+        "status": "Concluída"
+    }
+  
+]

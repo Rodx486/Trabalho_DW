@@ -131,18 +131,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <ul>
             <li>
-                <a href="../index.html">Home</a>
+                <a href="../index.php">Home</a>
             </li>
             <li>
                 <a href="cadastro.php">Cadastro</a>
             </li>
             <li>
-                <a href="perfil.html">Perfil</a>
+                <a href="perfil.php">Perfil</a>
             </li>
             <li class="dropdown">
                 <a href="">Login</a>
                 <div class="dropdown-menu">
-                    <a href="login.html">Entrar</a>
+                    <a href="login.php">Entrar</a>
                     <a href="logout.php">Sair</a>
                 </div>
             </li>

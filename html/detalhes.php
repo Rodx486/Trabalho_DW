@@ -1,3 +1,9 @@
+<?php
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,13 +38,13 @@
 
         <ul>
             <li>
-                <a href="../index.html">Home</a>
+                <a href="../index.php">Home</a>
             </li>
             <li>
                 <a href="cadastro.php">Cadastro</a>
             </li>
             <li>
-                <a href="perfil.html">Perfil</a>
+                <a href="perfil.php">Perfil</a>
             </li>
             <li class="dropdown">
                 <a href="">Login</a>
@@ -52,52 +58,34 @@
 
     </nav>
 
-    <div class="conteudo-principal-compra">
-        <div class="foto-compra">
-            <img src="" alt="produto-foto">
-        </div>
+    <div class="conteudo-principal-detalhe">
 
-        <div class="detalhe-venda">
-            <div>
-                <label>Nome:</label>
-                <input type="text" id="nome-compra" nome="nome-compra">
-            </div>
+        <div class="produto">
 
-            <div>
-                <label>Preço:</label>
-                <input type="text" id="preco-compra" nome="preco-compra">
-            </div>
-
-            <div>
-                <label>Método de Pagamento:</label>
-                <!-- <input type="text" id="pagamento-compra" nome="pagamento-compra"> -->
-
-                <select id="mtd-pagamento" name="mtd-pagamento" class="select-pagamento">
-                    <option value="">-- Selecione método de compra --</option>
-                    <option value="AC">PIX</option>
-                    <option value="AL">CARTÃO</option>
-                    <option value="AP">BOLETO BANCÁRIO</option>
-                </select>
-            </div>
-
-            <div>
-                <label>Endereço de entrega:</label>
-                <input type="text" id="endereco-compra" nome="endereco-compra">
-            </div>
-            <div class="btn-produto">
-                <!-- <button>COMPRAR</button>
-                <button>VOLTAR</button> -->
-                <a href="" class="botao-comprar">FINALIZAR COMPRA </a>
-                <a href="" class="botao-detalhe">VOLTAR</a>
-            </div>
-
+            <img id="detalhe-imagem" src="Foto do veículo" class="img_produto">
 
         </div>
 
+        <div class="detalhe-produto">
+
+            <ul id="detalhe-lista" style="list-style-type: none;">
+                <li>Carregando...</li>
+            </ul>
+
+
+
+        </div>
 
     </div>
 
 
+
+
+    <div class="btn-produto">
+        <a id="link-comprar" href="compra.php" class="botao-comprar">COMPRAR</a>
+        <a href="../index.php" class="botao-comprar">VOLTAR</a>
+
+    </div>
 
     <footer class="rodape">
         <div class="container">
@@ -132,6 +120,8 @@
 
     </footer>
     <script src='script.js'></script>
+    <script src='detalhes.js'></script>
+
 </body>
 
 </html>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,24 +9,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&R Veículos</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="html\estilos.css">
+
 </head>
 
 <body>
     <header>
         <div class="cabecalho" id="cabecalho">
             <div id="logo" class="logo">
-                <img src="..\data\img\banner\cabecalho.png" alt="cabecalho">
+                <img src="data\img\banner\cabecalho.png" alt="cabecalho">
 
             </div>
             <div class="banner" id="banner">
 
             </div>
 
-            <!-- <img src="data\img\banner\cabecalho.png" alt="cabecalho">
-        </div>
-        <div class="banner" id="banner">
-            <img src="data\img\banner\cabecalho.png" alt="cabecalho"> -->
+
         </div>
 
     </header>
@@ -32,53 +34,60 @@
 
         <ul>
             <li>
-                <a href="../index.html">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li>
-                <a href="cadastro.php">Cadastro</a>
+                <a href="html\cadastro.php">Cadastro</a>
             </li>
             <li>
-                <a href="perfil.html">Perfil</a>
+                <a href="html\perfil.php">Perfil</a>
             </li>
-            <li class ="dropdown">
+            <li class="dropdown">
                 <a href="">Login</a>
                 <div class="dropdown-menu">
-                    <a href="login.php">Entrar</a>
-                    <a href="logout.php">Sair</a>
+                    <a href="html/login.php">Entrar</a>
+                    <a href="html/logout.php">Sair</a>
                 </div>
+            </li>
+            <li>
+
+                <!-- <div class="container-foto-logado">
+                    
+                    <img src="" alt="" class="foto-logado" id="foto-logado">
+
+                </div> -->
+                
+
+
+
             </li>
 
         </ul>
 
     </nav>
+    <div class='container-foto-logado'>
 
-    <div class="conteudo-principal-detalhe">
-
-        <div class="produto">
-
-            <img id="detalhe-imagem" src="Foto do veículo" class="img_produto">
-
-        </div>
-
-        <div class="detalhe-produto">
-
-            <ul id="detalhe-lista" style="list-style-type: none;">
-                <li>Carregando...</li>
-            </ul>
-
-
-
-        </div>
+    
 
     </div>
 
 
 
-   
-    <div class="btn-produto">
-        <a id="link-comprar" href="compra.html" class="botao-comprar">COMPRAR</a>
-        <a href="../index.html" class="botao-comprar">VOLTAR</a>
 
+
+
+
+
+    <div id="main-produtos" class="conteudo-principal">
+
+
+
+    </div>
+
+    <div class="btn-produto">
+
+        <a href="" id="btnAnterior" class="btn-anterior">ANTERIOR</a>
+        <a href="" id="btnProximo" class="btn-proximo">PROXIMO</a>
     </div>
 
     <footer class="rodape">
@@ -111,11 +120,11 @@
 
         </div>
 
-
     </footer>
-    <script src='script.js'></script>
-    <script src='detalhes.js'></script>
-    
+
+    <script src="html/script.js"></script>
+    <!-- <script src="html/carrega_produtos_fetch.js"></script> -->
+    <script src="html/carrega_produtos_api.js"></script>
 </body>
 
 </html>

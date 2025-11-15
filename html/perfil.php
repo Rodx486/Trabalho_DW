@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,13 +37,13 @@
 
         <ul>
             <li>
-                <a href="../index.html">Home</a>
+                <a href="../index.php">Home</a>
             </li>
             <li>
                 <a href="cadastro.php">Cadastro</a>
             </li>
             <li>
-                <a href="perfil.html">Perfil</a>
+                <a href="perfil.php">Perfil</a>
             </li>
             <li class ="dropdown">
                 <a href="">Login</a>
@@ -61,11 +66,11 @@
         <div class="info-usuario">
             <div>
                 <label>Nome:</label>
-                <p>dfdfd</p>
+                <p></p>
             </div>
             <div>
                 <label>CPF:</label>
-                <p>dfdfdf</p>
+                <p></p>
             </div>
 
             <div>

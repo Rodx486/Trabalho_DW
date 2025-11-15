@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const veiculoId = urlParams.get('id');
 
     if(!veiculoId){
-        window.location.href = '../index.html';
+        window.location.href = '../index.php';
         return;
 
     }
@@ -71,7 +71,7 @@ function popularPagina(veiculo){
     `;
 
     
-    linkComprar.href = `compra.html?id=${veiculo.id}`; 
+    linkComprar.href = `compra.php?id=${veiculo.id}`; 
 
 } 
 

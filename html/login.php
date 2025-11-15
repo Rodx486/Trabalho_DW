@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($usuarioAchado && $usuarioAchado['senha'] === $senha) {
                 $_SESSION['logado'] = true;
+                $_SESSION['foto'] = $usuarioAchado['foto'];
                 $_SESSION['nome'] = $usuarioAchado['nome'];
                 $_SESSION['cpf'] = $usuarioAchado['cpf'];
                 $_SESSION['rg'] = $usuarioAchado['rg'];
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['celular'] = $usuarioAchado['celular'];
                 $_SESSION['email'] = $usuarioAchado['email'];
 
-                header('Location: ../index.html');
+                header('Location: ../index.php');
                 exit;
             } else {
                 echo "<script>alert('E-mail ou senha inválidos.');</script>";
@@ -99,13 +100,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <ul>
             <li>
-                <a href="../index.html">Home</a>
+                <a href="../index.php">Home</a>
             </li>
             <li>
                 <a href="cadastro.php">Cadastro</a>
             </li>
             <li>
-                <a href="perfil.html">Perfil</a>
+                <a href="perfil.php">Perfil</a>
             </li>
             <li class="dropdown">
                 <a href="">Login</a>
