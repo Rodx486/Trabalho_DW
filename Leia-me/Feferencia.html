@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referência de Funções - Projeto DW</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: black;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9; /* Azul */
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #16a085; /* Verde-azulado */
+            margin-top: 30px;
+            border-left: 4px solid #1abc9c;
+            padding-left: 10px;
+        }
+        .entry {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fdfdfd;
+            border: 1px solid #ecf0f1;
+            border-radius: 5px;
+        }
+        .entry-title {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.25em;
+            color: #c0392b; /* Vermelho */
+            background-color: #f9f9f9;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0 0 10px 0;
+        }
+        .entry p {
+            margin: 10px 0;
+        }
+        pre {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #2c3e50;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1em;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #bdc3c7;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Referência de Funções e Métodos (Projeto DW)</h1>
+
+        <h2>Funções e Métodos PHP</h2>
+
+        <h3>Gerenciamento de Sessão</h3>
+        
+        <div class="entry">
+            <h4 class="entry-title">session_start()</h4>
+            <p><strong>Explicação:</strong> Inicia uma nova sessão ou resume uma sessão existente. É essencial para usar as variáveis <code>$_SESSION</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>session_start();</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">session_destroy()</h4>
+            <p><strong>Explicação:</strong> Destrói todos os dados registrados em uma sessão. Usado no <code>logout.php</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>session_destroy();</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">isset()</h4>
+            <p><strong>Explicação:</strong> Verifica se uma variável está definida e não é <code>NULL</code>. Muito usado para checar se <code>$_SESSION['logado']</code> ou chaves <code>$_POST</code> existem.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>isset($variavel);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">empty()</h4>
+            <p><strong>Explicação:</strong> Verifica se uma variável é considerada "vazia". Uma variável é vazia se não existe ou se seu valor é <code>false</code>, <code>0</code>, <code>"0"</code>, <code>""</code>, <code>NULL</code> ou um array <code>[]</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>empty($variavel);</pre>
+        </div>
+
+        <h3>Manipulação de Arquivos</h3>
+        
+        <div class="entry">
+            <h4 class="entry-title">file_exists()</h4>
+            <p><strong>Explicação:</strong> Verifica se um arquivo ou diretório existe no caminho especificado.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>file_exists($caminho_do_arquivo);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">file_get_contents()</h4>
+            <p><strong>Explicação:</strong> Lê todo o conteúdo de um arquivo e o retorna como uma string. Usado para ler os arquivos <code>.json</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>file_get_contents($caminho_do_arquivo);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">file_put_contents()</h4>
+            <p><strong>Explicação:</strong> Escreve dados (uma string) em um arquivo. Usado para salvar os novos dados nos arquivos <code>.json</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>file_put_contents($caminho_do_arquivo, $dados);</pre>
+        </div>
+
+        <h3>Manipulação de JSON</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">json_decode()</h4>
+            <p><strong>Explicação:</strong> Converte uma string formatada em JSON para uma variável PHP (um objeto ou, com o segundo argumento <code>true</code>, um array associativo).</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>json_decode($string_json, $associativo_bool);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">json_encode()</h4>
+            <p><strong>Explicação:</strong> Converte uma variável PHP (array ou objeto) em uma string no formato JSON. <code>JSON_PRETTY_PRINT</code> formata o JSON para facilitar a leitura.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>json_encode($variavel_php, JSON_PRETTY_PRINT);</pre>
+        </div>
+
+        <h3>Resposta HTTP</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">header()</h4>
+            <p><strong>Explicação:</strong> Envia um cabeçalho HTTP bruto. Usado para redirecionar o usuário (<code>Location: ...</code>) ou para definir o tipo de conteúdo (<code>Content-Type: ...</code>).</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>header("String: Valor");</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">exit()</h4>
+            <p><strong>Explicação:</strong> Termina a execução do script. É importante usar após um redirecionamento <code>header('Location: ...')</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>exit();</pre>
+        </div>
+
+        <h3>Manipulação de Arrays</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">end()</h4>
+            <p><strong>Explicação:</strong> Avança o ponteiro interno de um array para seu último elemento e retorna o valor desse elemento.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>end($array);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">array_filter()</h4>
+            <p><strong>Explicação:</strong> Filtra os elementos de um array usando uma função de callback. Usado no <code>perfil.php</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>array_filter($array, $funcao_callback);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">array_reverse()</h4>
+            <p><strong>Explicação:</strong> Retorna um novo array com os elementos do array original na ordem inversa. Usado no <code>perfil.php</code>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>array_reverse($array);</pre>
+        </div>
+
+        <h3>Manipulação de Strings e Datas</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">explode()</h4>
+            <p><strong>Explicação:</strong> Divide uma string em um array de strings, usando outra string como delimitador.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>explode($delimitador, $string);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">ltrim()</h4>
+            <p><strong>Explicação:</strong> Remove espaços em branco (ou outros caracteres especificados) do início de uma string.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>ltrim($string, $caracteres_para_remover);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">strpos()</h4>
+            <p><strong>Explicação:</strong> Encontra a posição da primeira ocorrência de uma substring em uma string.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>strpos($string_completa, $substring_procurada);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">htmlspecialchars()</h4>
+            <p><strong>Explicação:</strong> Converte caracteres especiais em entidades HTML. É uma medida de segurança para prevenir ataques XSS.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>htmlspecialchars($string);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">date()</h4>
+            <p><strong>Explicação:</strong> Formata uma data/hora local. Usado para registrar a data da venda ou formatar a data para exibição.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>date($formato, $timestamp_opcional);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">strtotime()</h4>
+            <p><strong>Explicação:</strong> Converte uma descrição de data/hora textual em inglês para um timestamp Unix.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>strtotime($string_data);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">number_format()</h4>
+            <p><strong>Explicação:</strong> Formata um número com milhares agrupados e casas decimais. Usado para exibir o preço.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>number_format($numero, $casas_decimais, $separador_decimal, $separador_milhar);</pre>
+        </div>
+
+        <hr>
+
+        <h2>Funções e Métodos JavaScript</h2>
+
+        <h3>Manipulação do DOM</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">document.addEventListener()</h4>
+            <p><strong>Explicação:</strong> Anexa um "ouvinte" de eventos ao documento. <code>DOMContentLoaded</code> garante que o script rode após o HTML carregar.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>document.addEventListener("evento", $funcao_callback);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">document.getElementById()</h4>
+            <p><strong>Explicação:</strong> Retorna a referência do elemento HTML que possui o atributo ID especificado.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>document.getElementById("id_do_elemento");</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">document.querySelector()</h4>
+            <p><strong>Explicação:</strong> Retorna o primeiro elemento dentro do documento que corresponde ao seletor CSS especificado.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>document.querySelector("seletor_css");</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">document.querySelectorAll()</h4>
+            <p><strong>Explicação:</strong> Retorna uma lista (NodeList) de todos os elementos do documento que correspondem ao seletor CSS.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>document.querySelectorAll("seletor_css");</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">document.createElement()</h4>
+            <p><strong>Explicação:</strong> Cria um novo elemento HTML com a tag especificada.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>document.createElement("nome_da_tag");</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">element.appendChild()</h4>
+            <p><strong>Explicação:</strong> Adiciona um nó (elemento) como o último filho de um elemento pai.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>elemento_pai.appendChild(elemento_filho);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">element.classList.add()</h4>
+            <p><strong>Explicação:</strong> Adiciona uma ou mais classes CSS a um elemento.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>elemento.classList.add("nome_da_classe");</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">element.classList.remove()</h4>
+            <p><strong>Explicação:</strong> Remove uma ou mais classes CSS de um elemento.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>elemento.classList.remove("nome_da_classe");</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">element.click()</h4>
+            <p><strong>Explicação:</strong> Simula um clique de mouse em um elemento. Usado para o upload de foto de perfil.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>elemento.click();</pre>
+        </div>
+
+        <h3>Eventos</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">event.preventDefault()</h4>
+            <p><strong>Explicação:</strong> Impede que a ação padrão de um evento ocorra (ex: impedir um link <code>&lt;a&gt;</code> de recarregar a página).</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>evento.preventDefault();</pre>
+        </div>
+
+        <h3>Requisições de Rede (Fetch API)</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">fetch()</h4>
+            <p><strong>Explicação:</strong> Inicia o processo de busca de um recurso na rede (como sua API PHP). Retorna uma <em>Promise</em>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>fetch($url);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">Response.json()</h4>
+            <p><strong>Explicação:</strong> Método do objeto <code>Response</code> (retornado pelo <code>fetch</code>). Lê o corpo da resposta e o analisa como JSON. Retorna uma <em>Promise</em>.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>resposta_fetch.json();</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">Promise.then()</h4>
+            <p><strong>Explicação:</strong> Agenda uma função de callback para ser executada quando a <em>Promise</em> é resolvida (sucesso).</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>promise.then($funcao_callback);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">Promise.catch()</h4>
+            <p><strong>Explicação:</strong> Agenda uma função de callback para ser executada quando a <em>Promise</em> é rejeitada (erro).</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>promise.catch($funcao_de_erro);</pre>
+        </div>
+
+        <h3>Manipulação de URL</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">new URLSearchParams()</h4>
+            <p><strong>Explicação:</strong> Cria um novo objeto para trabalhar com os parâmetros de consulta (ex: <code>?id=1</code>) de uma URL.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>new URLSearchParams(window.location.search);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">URLSearchParams.get()</h4>
+            <p><strong>Explicação:</strong> Retorna o valor do primeiro parâmetro de consulta com o nome especificado.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>objeto_search_params.get("nome_do_parametro");</pre>
+        </div>
+
+        <h3>Arrays e Objetos</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">Array.find()</h4>
+            <p><strong>Explicação:</strong> Retorna o valor do <strong>primeiro</strong> elemento em um array que satisfaz a uma função de teste. Usado para encontrar o veículo pelo ID.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>array.find($funcao_de_teste);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">Array.forEach()</h4>
+            <p><strong>Explicação:</strong> Executa uma função para cada elemento de um array. Usado para criar os <em>cards</em> de produtos.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>array.forEach($funcao_callback);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">Array.slice()</h4>
+            <p><strong>Explicação:</strong> Retorna uma cópia de parte de um array, selecionada do índice <code>inicio</code> até <code>fim</code> (não incluso). Usado para a paginação.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>array.slice(indice_inicio, indice_fim);</pre>
+        </div>
+
+        <h3>Utilitários</h3>
+
+        <div class="entry">
+            <h4 class="entry-title">console.log()</h4>
+            <p><strong>Explicação:</strong> Exibe uma mensagem no console do navegador. Usado para depuração.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>console.log($mensagem);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">console.error()</h4>
+            <p><strong>Explicação:</strong> Exibe uma mensagem de erro no console do navegador.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>console.error($mensagem_de_erro);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">alert()</h4>
+            <p><strong>Explicação:</strong> Exibe uma caixa de diálogo de alerta com uma mensagem.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>alert($mensagem);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">setInterval()</h4>
+            <p><strong>Explicação:</strong> Chama uma função repetidamente, com um atraso fixo (em milissegundos) entre cada chamada. Usado para o banner rotativo.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>setInterval($funcao_callback, $milissegundos);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">Math.ceil()</h4>
+            <p><strong>Explicação:</strong> Arredonda um número <strong>para cima</strong> para o inteiro mais próximo. Usado para calcular o total de páginas.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>Math.ceil($numero);</pre>
+        </div>
+
+        <div class="entry">
+            <h4 class="entry-title">window.history.back()</h4>
+            <p><strong>Explicação:</strong> Faz o navegador voltar para a página anterior no histórico da sessão (simula o botão "Voltar").</p>
+            <p><strong>Sintaxe:</strong></p>
+            <pre>window.history.back();</pre>
+        </div>
+
+    </div>
+
+</body>
+</html>
