@@ -158,17 +158,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (isset($_SESSION['logado']) && $_SESSION['logado'] === true):
 
+            // aqui é  guardado o primeiro nome do usuário.
+            // "explode' quebra uma string colocando um delimitador
+            // o "[0]" indica que o retorno deve ser a primeira parte
+            // primeira posição da string quebrada e separada por espaço
+            // ou seja, será o primeiro nome
+
             $primeiroNome = explode(' ', $_SESSION['nome'])[0];
 
-
+            //  "??" => ser a variavel existir e não for nula, usa o valor contido   
             $foto = $_SESSION['foto'] ?? '';
+
             $fotoPadrao = 'data/img/img_perfil/perfil_exemplo.png';
+
+            
+
+            // o uso da foto padrão ou do usuário vai depender do conteúdo da variavel de sessão
             $fotoCaminho = !empty($foto) ? $foto : $fotoPadrao;
 
+
+
+            // ajuste do caminhos relativos com base na localização atual do arquivo PHP
+            // stpos verifica se a string '/html' em algum local do caminho do script
+            // para usso usa o conteúdo da super global $_SEVER que armazena esse caminho
 
             if (strpos($_SERVER['SCRIPT_FILENAME'], '/html/') !== false) {
 
                 $fotoCaminho = '../' . ltrim($fotoCaminho, '/');
+                
             } else {
 
                 $fotoCaminho = ltrim($fotoCaminho, './');
@@ -350,8 +367,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </html>
 
 <script>
+
+    // escuta o click no botão "voltar" para redirecionar para a página anterior 
+    // ou para a página inicial.
     document.addEventListener('DOMContentLoaded', function() {
+        
         var btn = document.getElementById('voltar');
+        
         if (btn) {
             btn.addEventListener('click', function() {
                 if (history.length > 1) {

@@ -5,68 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Referência de Funções - Projeto DW</title>
     <style>
+        /* 1. Definindo as variáveis de cor para o tema claro (padrão) */
+        :root {
+            --cor-fundo-pagina: black;
+            --cor-fundo-container: #ffffff;
+            --cor-texto-principal: #333;
+            --cor-titulo-h1: #2c3e50;
+            --cor-titulo-h2: #2980b9; /* Azul */
+            --cor-titulo-h3: #16a085; /* Verde-azulado */
+            --cor-borda-geral: #e0e0e0;
+            --cor-borda-entrada: #ecf0f1;
+            --cor-fundo-entrada: #fdfdfd;
+            --cor-titulo-entrada: #c0392b; /* Vermelho */
+            --cor-fundo-titulo-entrada: #f9f9f9;
+            --cor-fundo-pre: #ecf0f1;
+            --cor-texto-pre: #2c3e50;
+        }
+
+        /* 2. Definindo as variáveis para o tema escuro */
+        body.dark-mode {
+            --cor-fundo-pagina: #121212;
+            --cor-fundo-container: #1e272e;
+            --cor-texto-principal: #ecf0f1;
+            --cor-titulo-h1: #ffffff;
+            --cor-titulo-h2: #3498db; /* Azul mais claro */
+            --cor-titulo-h3: #1abc9c; /* Verde-azulado mais claro */
+            --cor-borda-geral: #4a6278;
+            --cor-borda-entrada: #4a6278;
+            --cor-fundo-entrada: #2c3e50;
+            --cor-titulo-entrada: #e74c3c; /* Vermelho mais claro */
+            --cor-fundo-titulo-entrada: #34495e;
+            --cor-fundo-pre: #34495e;
+            --cor-texto-pre: #ecf0f1;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            background-color: black;
-            color: #333;
+            background-color: var(--cor-fundo-pagina);
+            color: var(--cor-texto-principal);
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s, color 0.3s;
         }
         .container {
             max-width: 900px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: var(--cor-fundo-container);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative; /* Para posicionar o botão */
+            transition: background-color 0.3s;
         }
+
+        /* 3. Botão para alternar o tema */
+        #theme-toggle {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--cor-fundo-pre);
+            color: var(--cor-texto-pre);
+            border: 1px solid var(--cor-borda-geral);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+        #theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        /* Esconde o ícone que não deve aparecer */
+        .moon-icon { display: none; }
+        body.dark-mode .sun-icon { display: none; }
+        body.dark-mode .moon-icon { display: block; }
+
         h1 {
             text-align: center;
-            color: #2c3e50;
-            border-bottom: 2px solid #e0e0e0;
+            color: var(--cor-titulo-h1);
+            border-bottom: 2px solid var(--cor-borda-geral);
             padding-bottom: 10px;
         }
         h2 {
-            color: #2980b9; /* Azul */
-            border-bottom: 1px solid #bdc3c7;
+            color: var(--cor-titulo-h2);
+            border-bottom: 1px solid var(--cor-borda-geral);
             padding-bottom: 5px;
             margin-top: 40px;
         }
         h3 {
-            color: #16a085; /* Verde-azulado */
+            color: var(--cor-titulo-h3);
             margin-top: 30px;
-            border-left: 4px solid #1abc9c;
+            border-left: 4px solid var(--cor-titulo-h3);
             padding-left: 10px;
         }
         .entry {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #fdfdfd;
-            border: 1px solid #ecf0f1;
+            background-color: var(--cor-fundo-entrada);
+            border: 1px solid var(--cor-borda-entrada);
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
         .entry-title {
             font-family: "Courier New", Courier, monospace;
             font-size: 1.25em;
-            color: #c0392b; /* Vermelho */
-            background-color: #f9f9f9;
+            color: var(--cor-titulo-entrada);
+            background-color: var(--cor-fundo-titulo-entrada);
             padding: 5px 10px;
             border-radius: 4px;
             display: inline-block;
             margin: 0 0 10px 0;
+            transition: background-color 0.3s, color 0.3s;
         }
         .entry p {
             margin: 10px 0;
         }
         pre {
-            background-color: #ecf0f1;
+            background-color: var(--cor-fundo-pre);
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
-            color: #2c3e50;
+            color: var(--cor-texto-pre);
             font-family: "Courier New", Courier, monospace;
             font-size: 1em;
+            transition: background-color 0.3s, color 0.3s;
         }
         code {
             font-family: "Courier New", Courier, monospace;
@@ -74,16 +141,33 @@
         hr {
             border: 0;
             height: 1px;
-            background-color: #bdc3c7;
+            background-color: var(--cor-borda-geral);
             margin-top: 40px;
         }
     </style>
+    <!-- Script para aplicar o tema antes da página carregar e evitar 'flash' -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-mode-preload');
+                document.body.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 <body>
 
     <div class="container">
+        <!-- 4. Botão para alternar o modo escuro/claro -->
+        <button id="theme-toggle" title="Alternar tema">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
+
         <h1>Referência de Funções e Métodos (Projeto DW)</h1>
 
+        <!-- O restante do seu conteúdo HTML permanece o mesmo -->
         <h2>Funções e Métodos PHP</h2>
 
         <h3>Gerenciamento de Sessão</h3>
@@ -437,6 +521,26 @@
         </div>
 
     </div>
+
+    <!-- 5. Script para controlar a lógica do modo escuro -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            themeToggle.addEventListener('click', () => {
+                // Alterna a classe no body
+                body.classList.toggle('dark-mode');
+
+                // Salva a preferência no localStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
